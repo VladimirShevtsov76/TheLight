@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-    var isLightColor = "black";
+    var isLightColor = "white";
     override var prefersStatusBarHidden: Bool {
         return true}
     
@@ -18,14 +18,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+        toggleFlash()
     }
 
     fileprivate func updateUI() {
         switch  isLightColor {
-        case "black":
-            view.backgroundColor = .black
         case "white":
             view.backgroundColor = .white
+        case "black":
+            view.backgroundColor = .black
         case "green":
             view.backgroundColor = .green
         case "yellow":
@@ -41,17 +42,17 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         switch  isLightColor {
-        case "black":
-            isLightColor = "white"
         case "white":
+            isLightColor = "black"
+        case "black":
             isLightColor = "green"
         case "green":
             isLightColor = "yellow"
         case "yellow":
             isLightColor = "red"
         case "red":
-            isLightColor = "black"
-          default:
+            isLightColor = "white"
+        default:
             isLightColor = "black"
         }
         
